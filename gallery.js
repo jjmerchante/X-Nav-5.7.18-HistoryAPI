@@ -4,11 +4,11 @@ function supports_history_api() {
 
 function swapPhoto(href) {
   var req = new XMLHttpRequest();
+  console.log(href.split("/"));
   req.open("GET",
-           "http://gsyc.es/~grex/history_api/gallery/" +
-             href.split("/").pop(),
+           "./gallery/" + href.split("/").pop(),
            false);
-  req.send(null);
+  req.send();
   if (req.status == 200) {
     document.getElementById("gallery").innerHTML = req.responseText;
     setupHistoryClicks();
@@ -40,4 +40,3 @@ window.onload = function() {
     }, false);
   }, 1);
 }
-
